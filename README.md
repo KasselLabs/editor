@@ -1,12 +1,12 @@
-# Videomatik Editor SDK
+# Autoeditor SDK
 
 This module provides access to Videomatik's Editor to be able to make some
-operations for videomatik through a video editor.
+operations for autoeditor through a video editor.
 
 ## Installation
 
 ```bash
-npm install --save @videomatik/editor
+npm install --save @autoeditor/editor
 ```
 
 # Clipper
@@ -22,10 +22,10 @@ Considering you have the follow div on your HTML:
 You can create a video clipper using the following code:
 
 ```javascript
-import { Clipper } from '@videomatik/editor'
+import { Clipper } from '@autoeditor/editor'
 
 const clipper = new Clipper('#video-clipper', {
-  video: 'https://storage.videomatik.com.br/videomatik-sheet/a426c1ce128.mp4',
+  video: 'https://storage.autoeditor.kassellabs.io/a426c1ce128.mp4',
   clips: [
     {start: 10, end: 20, selected: true},
     {start: 40, end: 60, selected: false},
@@ -64,10 +64,10 @@ Considering you have the follow div on your HTML:
 You can create a video cropper using the following code:
 
 ```javascript
-import { Cropper } from '@videomatik/editor'
+import { Cropper } from '@autoeditor/editor'
 
 const cropper = new Cropper('#video-cropper', {
-  video: 'https://storage.videomatik.com.br/videomatik-sheet/a426c1ce128.mp4',
+  video: 'https://storage.autoeditor.kassellabs.io/a426c1ce128.mp4',
   crops: [],
 })
 ```
@@ -110,7 +110,3 @@ to what you want to test.
 
 You can use `__editorURL` special parameter to change the intended editor
 iframe URL to the one on your dev server
-
-# Support
-
-Please read the API documentation available on [Videomatik's website](https://videomatik.com.br) or contact the developers through our Discord server (invite link available at our website).

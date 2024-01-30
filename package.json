@@ -1,5 +1,5 @@
 {
-  "name": "@videomatik/editor",
+  "name": "@autoeditor/editor",
   "version": "0.1.1",
   "description": "Videomatik Editor as an Embeddable component",
   "main": "dist/editor.js",
@@ -14,17 +14,17 @@
     "url": "git+https://github.com/Videomatik/editor.git"
   },
   "keywords": [
-    "videomatik",
+    "autoeditor",
     "video",
     "editor",
     "timeline"
   ],
-  "author": "Videomatik <contato@videomatik.com.br>",
+  "author": "Kassel Labs <contact@kassellabs.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Videomatik/editor/issues"
+    "url": "https://github.com/autoeditor/editor/issues"
   },
-  "homepage": "https://github.com/Videomatik/editor#readme",
+  "homepage": "https://github.com/autoeditor/editor#readme",
   "devDependencies": {
     "eslint": "^8.55.0",
     "eslint-config-airbnb-base": "^15.0.0",

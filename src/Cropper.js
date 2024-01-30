@@ -4,7 +4,7 @@ const getContainer = require('./getContainer');
 class VideomatikCropper {
   constructor(containerSelectorOrElement, options = {}) {
     const {
-      __editorURL = 'https://editor.videomatik.com.br',
+      __editorURL = 'https://autoeditor.kassellabs.io',
       video,
       crops,
       aspectRatio,
