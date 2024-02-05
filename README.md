@@ -25,7 +25,7 @@ You can create a video clipper using the following code:
 import { Clipper } from '@autoeditor/editor'
 
 const clipper = new Clipper('#video-clipper', {
-  video: 'https://storage.autoeditor.kassellabs.io/a426c1ce128.mp4',
+  video: 'https://autoeditorfiles.kassellabs.io/autoeditor/cc0bd38b235.mp4',
   clips: [
     {start: 10, end: 20, selected: true},
     {start: 40, end: 60, selected: false},
@@ -67,7 +67,7 @@ You can create a video cropper using the following code:
 import { Cropper } from '@autoeditor/editor'
 
 const cropper = new Cropper('#video-cropper', {
-  video: 'https://storage.autoeditor.kassellabs.io/a426c1ce128.mp4',
+  video: 'https://autoeditorfiles.kassellabs.io/autoeditor/c0bd38b235e.mp4',
   crops: [],
 })
 ```
