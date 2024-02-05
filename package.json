@@ -1,6 +1,6 @@
 {
-  "name": "@autoeditor/editor",
-  "version": "0.1.1",
+  "name": "@kassellabs/autoeditor",
+  "version": "1.0.0",
   "description": "Autoeditor as an Embeddable component",
   "main": "dist/editor.js",
   "scripts": {

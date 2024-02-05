@@ -6,7 +6,7 @@ operations for autoeditor through a video editor.
 ## Installation
 
 ```bash
-npm install --save @autoeditor/editor
+npm install --save @kassellabs/autoeditor
 ```
 
 # Clipper
@@ -22,7 +22,7 @@ Considering you have the follow div on your HTML:
 You can create a video clipper using the following code:
 
 ```javascript
-import { Clipper } from '@autoeditor/editor'
+import { Clipper } from '@kassellabs/autoeditor'
 
 const clipper = new Clipper('#video-clipper', {
   video: 'https://autoeditorfiles.kassellabs.io/autoeditor/cc0bd38b235.mp4',
@@ -64,7 +64,7 @@ Considering you have the follow div on your HTML:
 You can create a video cropper using the following code:
 
 ```javascript
-import { Cropper } from '@autoeditor/editor'
+import { Cropper } from '@kassellabs/autoeditor'
 
 const cropper = new Cropper('#video-cropper', {
   video: 'https://autoeditorfiles.kassellabs.io/autoeditor/c0bd38b235e.mp4',
