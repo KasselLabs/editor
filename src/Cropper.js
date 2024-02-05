@@ -1,7 +1,7 @@
 const EventEmitter = require('events');
 const getContainer = require('./getContainer');
 
-class VideomatikCropper {
+class AutoeditorCropper {
   constructor(containerSelectorOrElement, options = {}) {
     const {
       __editorURL = 'https://autoeditor.kassellabs.io',
@@ -86,4 +86,4 @@ class VideomatikCropper {
     this.iframe.remove();
   }
 }
-module.exports = VideomatikCropper;
+module.exports = AutoeditorCropper;

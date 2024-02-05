@@ -16,7 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: isProduction ? 'editor.min.js' : 'editor.js',
     library: {
-      name: 'VideomatikEditor',
+      name: 'Autoeditor',
       type: 'umd',
     },
   },

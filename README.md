@@ -1,6 +1,6 @@
 # Autoeditor SDK
 
-This module provides access to Videomatik's Editor to be able to make some
+This module provides access to Autoeditor to be able to make some
 operations for autoeditor through a video editor.
 
 ## Installation
