@@ -1,7 +1,7 @@
 const EventEmitter = require('events');
 const getContainer = require('./getContainer');
 
-class AutoeditorCropper {
+class AutoeditorCropSubtitleEditor {
   constructor(containerSelectorOrElement, options = {}) {
     const {
       __editorURL = 'https://autoeditor.kassellabs.io',
@@ -86,4 +86,4 @@ class AutoeditorCropper {
     this.iframe.remove();
   }
 }
-module.exports = AutoeditorCropper;
+module.exports = AutoeditorCropSubtitleEditor;

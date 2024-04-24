@@ -1,7 +1,7 @@
-const Clipper = require('./Clipper');
-const Cropper = require('./Cropper');
+const ClipEditor = require('./ClipEditor');
+const CropSubtitleEditor = require('./CropSubtitleEditor');
 
 module.exports = {
-  Clipper,
-  Cropper,
+  ClipEditor,
+  CropSubtitleEditor,
 };

@@ -9,22 +9,22 @@ operations for autoeditor through a video editor.
 npm install --save @kassellabs/autoeditor
 ```
 
-# Clipper
+# Clip Editor
 
 ## Usage
 
 Considering you have the follow div on your HTML:
 
 ```html
-<div id="video-clipper"></div>
+<div id="video-clip-editor"></div>
 ```
 
-You can create a video clipper using the following code:
+You can create a video clip editor using the following code:
 
 ```javascript
-import { Clipper } from '@kassellabs/autoeditor'
+import { ClipEditor } from '@kassellabs/autoeditor'
 
-const clipper = new Clipper('#video-clipper', {
+const clipEditor = new ClipEditor('#video-clip-editor', {
   video: 'https://autoeditorfiles.kassellabs.io/autoeditor/cc0bd38b235.mp4',
   clips: [
     {start: 10, end: 20, selected: true},
@@ -34,7 +34,7 @@ const clipper = new Clipper('#video-clipper', {
 })
 ```
 
-This will create a new video clipper using the preset video and clips in the timeline
+This will create a new video clip editor using the preset video and clips in the timeline
 
 ## Events
 
@@ -42,37 +42,37 @@ You can listen to events and check when the editor's state was updated with the
 following methods:
 
 ```javascript
-clipper.on('ready', () => {
+clipEditor.on('ready', () => {
   console.log('The player was successfully mounted and finished loading')
 })
 
-clipper.on('change', ({ clips }) => {
+clipEditor.on('change', ({ clips }) => {
   console.log('User has changed the clips to:', clips)
 })
 ```
 
-# Cropper
+# CropSubtitleEditor
 
 ## Usage
 
 Considering you have the follow div on your HTML:
 
 ```html
-<div id="video-cropper"></div>
+<div id="video-crop-editor"></div>
 ```
 
-You can create a video cropper using the following code:
+You can create a video crop subtitle editor using the following code:
 
 ```javascript
-import { Cropper } from '@kassellabs/autoeditor'
+import { CropSubtitleEditor } from '@kassellabs/autoeditor'
 
-const cropper = new Cropper('#video-cropper', {
+const cropSubtitleEditor = new CropSubtitleEditor('#video-crop-editor', {
   video: 'https://autoeditorfiles.kassellabs.io/autoeditor/c0bd38b235e.mp4',
   crops: [],
 })
 ```
 
-This will create a new video cropper using the preset video and clips in the timeline
+This will create a new video crop subtitle editor using the preset video and clips in the timeline
 
 ## Events
 
@@ -80,11 +80,11 @@ You can listen to events and check when the editor's state was updated with the
 following methods:
 
 ```javascript
-cropper.on('ready', ({ crops }) => {
+cropSubtitleEditor.on('ready', ({ crops }) => {
   console.log('The player was successfully mounted and finished loading, the default crops are:', crops)
 })
 
-cropper.on('change', ({ crops }) => {
+cropSubtitleEditor.on('change', ({ crops }) => {
   console.log('User has changed the crops to:', crops)
 })
 ```
