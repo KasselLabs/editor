@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const json5 = require('json5');
 const readJSON = require('./lib/readJSON');

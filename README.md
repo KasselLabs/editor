@@ -230,19 +230,21 @@ You can listen to events and check when the editor's state was updated with the
 following methods:
 
 ```javascript
-cropSubtitleEditor.on('ready', ({ data, crops, subtitles }) => {
+cropSubtitleEditor.on('ready', ({ input, data, crop, subtitle }) => {
   console.log('The player was successfully mounted and finished loading, the default settings are:', {
+    input,
     data,
-    crops,
-    subtitles,
+    crop,
+    subtitle,
   })
 })
 
-cropSubtitleEditor.on('change', ({ data, crops, subtitles }) => {
+cropSubtitleEditor.on('change', ({ input, data, crop, subtitle }) => {
   console.log('The settings have changed to:', {
+    input,
     data,
-    crops,
-    subtitles,
+    crop,
+    subtitle,
   })
 })
 ```

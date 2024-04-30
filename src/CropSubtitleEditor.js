@@ -26,6 +26,7 @@ class AutoeditorCropSubtitleEditor {
     container.appendChild(iframe);
 
     this.editorURL = new URL(__editorURL);
+    this.initialized = false;
     this.iframe = iframe;
     this.video = video;
     this.input = input;
@@ -62,7 +63,6 @@ class AutoeditorCropSubtitleEditor {
     // eslint-disable-next-line default-case
     switch (data.action) {
       case 'mounted':
-        console.log('Mounted');
         // Preset Crops
         this.iframe.contentWindow.postMessage({
           action: 'initialize',
@@ -75,12 +75,18 @@ class AutoeditorCropSubtitleEditor {
         }, '*');
         break;
 
-      case 'ready':
-        this.eventEmitter.emit('ready', data.payload);
-        break;
+      case 'change': {
+        if (this.initialized) {
+          this.eventEmitter.emit('change', data.payload);
+          return;
+        }
 
-      case 'change':
-        this.eventEmitter.emit('change', data.payload);
+        const isExistingClipIntervals = data.payload?.data?.clipIntervals?.length > 0;
+        if (isExistingClipIntervals) {
+          this.eventEmitter.emit('ready', data.payload);
+          this.initialized = true;
+        }
+      }
         break;
     }
   };

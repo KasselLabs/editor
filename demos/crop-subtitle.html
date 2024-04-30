@@ -1798,13 +1798,22 @@
         },
       })
 
-      cropSubtitleEditor.on('ready', ({ crops }) => {
-        console.log('The player was successfully mounted and finished loading')
+      cropSubtitleEditor.on('ready', ({ input, data, crop, subtitle }) => {
+        console.log('The player was successfully mounted and finished loading, the default settings are:', {
+          input,
+          data,
+          crop,
+          subtitle,
+        })
       })
 
-      cropSubtitleEditor.on('change', ({ crops }) => {
-        console.log('User has changed the crops to:', crops)
-        savedCrops = crops
+      cropSubtitleEditor.on('change', ({ input, data, crop, subtitle }) => {
+        console.log('The settings have changed to:', {
+          input,
+          data,
+          crop,
+          subtitle,
+        })
       })
     </script>
   </body>
