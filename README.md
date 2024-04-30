@@ -58,7 +58,7 @@ clipEditor.on('change', ({ clips }) => {
 Considering you have the follow div on your HTML:
 
 ```html
-<div id="video-crop-editor"></div>
+<div id="video-crop-subtitle-editor"></div>
 ```
 
 You can create a video crop subtitle editor using the following code:
@@ -66,9 +66,159 @@ You can create a video crop subtitle editor using the following code:
 ```javascript
 import { CropSubtitleEditor } from '@kassellabs/autoeditor'
 
-const cropSubtitleEditor = new CropSubtitleEditor('#video-crop-editor', {
-  video: 'https://autoeditorfiles.kassellabs.io/autoeditor/c0bd38b235e.mp4',
-  crops: [],
+const cropSubtitleEditor = new CropSubtitleEditor('#video-crop-subtitle-editor', {
+  input: {
+    media: {
+      url: 'https://autoeditor.us-mia-1.linodeobjects.com/videos/_N7YGRnKlMBOyOnv2HB7g.mp4', // Required -> URL of the base video to be edited
+    },
+  },
+  data: {
+    frameRate: 30, // Can be either 30 or 60 (Defaults to 30)
+    overlays: {
+      watermark: {},
+      front: [],
+      back: [],
+    },
+  },
+  crop: {
+    aspectRatio: 9 / 16, // Aspect ratio in which the video will be cropped (Defaults to 9 / 16)
+    scenes: [ // Each scene should be placed as an element here
+      {
+        start: 0,       // Start time of the scene (in seconds)
+        end: 3.35,      // End time of the scene (in seconds)
+        exported: true, // Will the scene be exported in the final video?
+        cropCenter: {   // The scene crop settings
+          x: 986.5821075439453,
+          y: 540,
+          width: 328.6436462402344,
+          height: 385.56941986083973,
+          faceCenters: [ // Optional -> will be used in the future for easier cropping
+            {
+              x: 986.5821075439453,
+              y: 540,
+              width: 328.6436462402344,
+              height: 385.56941986083973,
+            },
+          ],
+        },
+      },
+      {
+        end: 52.134,
+        start: 3.35,
+        exported: true,
+        cropCenter: {
+          x: 688.7061309814453,
+          y: 540,
+          width: 404.1566848754883,
+          height: 474.59916114807123,
+          faceCenters: [
+            {
+              x: 688.7061309814453,
+              y: 540,
+              width: 404.1566848754883,
+              height: 474.59916114807123,
+            },
+          ],
+        },
+      },
+      {
+        end: 76.334,
+        start: 52.134,
+        exported: true,
+        cropCenter: {
+          x: 875.2653408050537,
+          y: 540,
+          width: 377.5535774230957,
+          height: 463.2939147949219,
+          faceCenters: [
+            {
+              x: 875.2653408050537,
+              y: 540,
+              width: 377.5535774230957,
+              height: 463.2939147949219,
+            },
+          ],
+        },
+      },
+      {
+        end: 82.667,
+        start: 76.334,
+        exported: true,
+        cropCenter: {
+          x: 888.1230068206787,
+          y: 540,
+          width: 330.472354888916,
+          height: 378.0462169647217,
+          faceCenters: [
+            {
+              x: 888.1230068206787,
+              y: 540,
+              width: 330.472354888916,
+              height: 378.0462169647217,
+            },
+          ],
+        },
+      },
+      {
+        end: 101.818,
+        start: 82.667,
+        exported: true,
+        cropCenter: {
+          x: 931.424560546875,
+          y: 540,
+          width: 341.4722442626953,
+          height: 464.4005870819092,
+          faceCenters: [
+            {
+              x: 931.424560546875,
+              y: 540,
+              width: 341.4722442626953,
+              height: 464.4005870819092,
+            },
+          ],
+        },
+      },
+    ],
+  },
+  subtitle: {
+    transcription: {
+      segments: [
+        {
+          text: 'tudo sabe eu vou contar',
+          start: 0.545,
+          end: 2.44,
+          words: [
+            {
+              word: 'tudo',
+              start: 0.545,
+              end: 1.045,
+            },
+            {
+              word: 'sabe',
+              start: 1.185,
+              end: 1.56,
+            },
+            {
+              word: 'eu',
+              start: 1.8,
+              end: 1.96,
+            },
+            {
+              word: 'vou',
+              start: 1.96,
+              end: 2.04,
+            },
+            {
+              word: 'contar',
+              start: 2.04,
+              end: 2.44,
+            },
+          ],
+        },
+        ...
+      ],
+    },
+  },
 })
 ```
 
@@ -80,12 +230,20 @@ You can listen to events and check when the editor's state was updated with the
 following methods:
 
 ```javascript
-cropSubtitleEditor.on('ready', ({ crops }) => {
-  console.log('The player was successfully mounted and finished loading, the default crops are:', crops)
+cropSubtitleEditor.on('ready', ({ data, crops, subtitles }) => {
+  console.log('The player was successfully mounted and finished loading, the default settings are:', {
+    data,
+    crops,
+    subtitles,
+  })
 })
 
-cropSubtitleEditor.on('change', ({ crops }) => {
-  console.log('User has changed the crops to:', crops)
+cropSubtitleEditor.on('change', ({ data, crops, subtitles }) => {
+  console.log('The settings have changed to:', {
+    data,
+    crops,
+    subtitles,
+  })
 })
 ```
 

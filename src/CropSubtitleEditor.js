@@ -1,34 +1,51 @@
 const EventEmitter = require('events');
 const getContainer = require('./getContainer');
+const convertSecondsToTimeString = require('./utils/convertSecondsToTimeString');
 
 class AutoeditorCropSubtitleEditor {
   constructor(containerSelectorOrElement, options = {}) {
     const {
-      __editorURL = 'https://autoeditor.kassellabs.io',
+      __editorURL = 'https://editor.kassellabs.io',
       video,
-      crops,
+      input,
+      data,
+      crop,
+      subtitle,
       aspectRatio,
     } = options;
     const container = getContainer(containerSelectorOrElement);
     const iframe = document.createElement('iframe');
     iframe.width = '100%';
     iframe.height = '100%';
-    iframe.scrolling = 'no';
+    iframe.scrolling = 'yes';
     iframe.style.border = 'none';
     iframe.allowFullScreen = true;
 
-    const urlParams = new URLSearchParams({
-      video,
-      aspectRatio,
-    });
-    iframe.setAttribute('src', `${__editorURL}/cropper/embed?${urlParams.toString()}`);
+    iframe.setAttribute('src', `${__editorURL}/embed/project`);
 
     container.appendChild(iframe);
 
     this.editorURL = new URL(__editorURL);
     this.iframe = iframe;
     this.video = video;
-    this.crops = crops;
+    this.input = input;
+    this.data = data;
+    this.crop = crop;
+    this.subtitle = {
+      transcription: {
+        segments: subtitle.transcription?.segments?.map((segment, index) => ({
+          id: index + 1,
+          text: segment.text,
+          startTime: convertSecondsToTimeString(segment.start),
+          endTime: convertSecondsToTimeString(segment.end),
+          words: segment.words.map((word) => ({
+            word: word.word,
+            startTime: convertSecondsToTimeString(word.start),
+            endTime: convertSecondsToTimeString(word.end),
+          })),
+        })) || [],
+      },
+    };
     this.aspectRatio = aspectRatio;
 
     this.eventEmitter = new EventEmitter();
@@ -45,20 +62,15 @@ class AutoeditorCropSubtitleEditor {
     // eslint-disable-next-line default-case
     switch (data.action) {
       case 'mounted':
-        if (!this.crops || !this.crops?.length) {
-          // Auto Detect Crops
-          this.iframe.contentWindow.postMessage({
-            action: 'crops-detect',
-            payload: {},
-          }, '*');
-          return;
-        }
-
+        console.log('Mounted');
         // Preset Crops
         this.iframe.contentWindow.postMessage({
-          action: 'crops-set',
+          action: 'initialize',
           payload: {
-            crops: this.crops,
+            input: this.input,
+            data: this.data,
+            crop: this.crop,
+            subtitle: this.subtitle,
           },
         }, '*');
         break;
@@ -67,7 +79,7 @@ class AutoeditorCropSubtitleEditor {
         this.eventEmitter.emit('ready', data.payload);
         break;
 
-      case 'crop-changed':
+      case 'change':
         this.eventEmitter.emit('change', data.payload);
         break;
     }

@@ -1,0 +1,1811 @@
+<!-- For tests only, run "http-server" on the terminal -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body {
+        margin: 0;
+        background: #333;
+      }
+
+      .cropper-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column
+      }
+
+      button {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cropper-container">
+      <div id="crop-subtitle-editor" style="height: 70vh; width: 100%"></div>
+      <button type="button" onclick="console.log(savedCrops)">
+        Export
+      </button>
+    </div>
+    <script src="/dist/editor.js"></script>
+    <script>
+      const cropSubtitleEditor = new Autoeditor.CropSubtitleEditor("#crop-subtitle-editor", {
+        __editorURL: 'http://localhost:3000',
+        input: {
+          media: {
+            url: 'https://autoeditor.us-mia-1.linodeobjects.com/videos/_N7YGRnKlMBOyOnv2HB7g.mp4', // Required -> Base video to be edited
+          },
+        },
+        data: {
+          compressedEditableVideo: "https://autoeditorfiles.kassellabs.io/autoeditor/eec5e0fdeb8.mp4",
+          frameRate: 30, // Can be either 30 or 60 (Defaults to 30)
+          overlays: {
+            watermark: {},
+            front: [],
+            back: [],
+          },
+        },
+        crop: {
+          aspectRatio: 9 / 16, // Aspect ratio in which the video will be cropped (Defaults to 9 / 16)
+          scenes: [
+            {
+              end: 3.35,
+              start: 0,
+              exported: true,
+              cropCenter: {
+                x: 986.5821075439453,
+                y: 540,
+                width: 328.6436462402344,
+                height: 385.56941986083973,
+                faceCenters: [
+                  {
+                    x: 986.5821075439453,
+                    y: 540,
+                    width: 328.6436462402344,
+                    height: 385.56941986083973,
+                  },
+                ],
+              },
+            },
+            {
+              end: 52.134,
+              start: 3.35,
+              exported: true,
+              cropCenter: {
+                x: 688.7061309814453,
+                y: 540,
+                width: 404.1566848754883,
+                height: 474.59916114807123,
+                faceCenters: [
+                  {
+                    x: 688.7061309814453,
+                    y: 540,
+                    width: 404.1566848754883,
+                    height: 474.59916114807123,
+                  },
+                ],
+              },
+            },
+            {
+              end: 76.334,
+              start: 52.134,
+              exported: true,
+              cropCenter: {
+                x: 875.2653408050537,
+                y: 540,
+                width: 377.5535774230957,
+                height: 463.2939147949219,
+                faceCenters: [
+                  {
+                    x: 875.2653408050537,
+                    y: 540,
+                    width: 377.5535774230957,
+                    height: 463.2939147949219,
+                  },
+                ],
+              },
+            },
+            {
+              end: 82.667,
+              start: 76.334,
+              exported: true,
+              cropCenter: {
+                x: 888.1230068206787,
+                y: 540,
+                width: 330.472354888916,
+                height: 378.0462169647217,
+                faceCenters: [
+                  {
+                    x: 888.1230068206787,
+                    y: 540,
+                    width: 330.472354888916,
+                    height: 378.0462169647217,
+                  },
+                ],
+              },
+            },
+            {
+              end: 101.818,
+              start: 82.667,
+              exported: true,
+              cropCenter: {
+                x: 931.424560546875,
+                y: 540,
+                width: 341.4722442626953,
+                height: 464.4005870819092,
+                faceCenters: [
+                  {
+                    x: 931.424560546875,
+                    y: 540,
+                    width: 341.4722442626953,
+                    height: 464.4005870819092,
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        subtitle: {
+          transcription: {
+            segments: [
+              {
+                text: 'tudo sabe eu vou contar',
+                start: 0.545,
+                end: 2.44,
+                words: [
+                  {
+                    word: 'tudo',
+                    start: 0.545,
+                    end: 1.045,
+                  },
+                  {
+                    word: 'sabe',
+                    start: 1.185,
+                    end: 1.56,
+                  },
+                  {
+                    word: 'eu',
+                    start: 1.8,
+                    end: 1.96,
+                  },
+                  {
+                    word: 'vou',
+                    start: 1.96,
+                    end: 2.04,
+                  },
+                  {
+                    word: 'contar',
+                    start: 2.04,
+                    end: 2.44,
+                  },
+                ],
+              },
+              {
+                text: 'uma pra você boa conta',
+                start: 2.44,
+                end: 3.98,
+                words: [
+                  {
+                    word: 'uma',
+                    start: 2.44,
+                    end: 2.52,
+                  },
+                  {
+                    word: 'pra',
+                    start: 2.52,
+                    end: 2.76,
+                  },
+                  {
+                    word: 'você',
+                    start: 2.76,
+                    end: 3.08,
+                  },
+                  {
+                    word: 'boa',
+                    start: 3.08,
+                    end: 3.48,
+                  },
+                  {
+                    word: 'conta',
+                    start: 3.48,
+                    end: 3.98,
+                  },
+                ],
+              },
+              {
+                text: 'boa eu tive a oportunidade',
+                start: 4.04,
+                end: 8.22,
+                words: [
+                  {
+                    word: 'boa',
+                    start: 4.04,
+                    end: 4.54,
+                  },
+                  {
+                    word: 'eu',
+                    start: 7.16,
+                    end: 7.4,
+                  },
+                  {
+                    word: 'tive',
+                    start: 7.4,
+                    end: 7.56,
+                  },
+                  {
+                    word: 'a',
+                    start: 7.56,
+                    end: 7.72,
+                  },
+                  {
+                    word: 'oportunidade',
+                    start: 7.72,
+                    end: 8.22,
+                  },
+                ],
+              },
+              {
+                text: 'de experienciar o ayahuasca em',
+                start: 8.6,
+                end: 10.615,
+                words: [
+                  {
+                    word: 'de',
+                    start: 8.6,
+                    end: 9.08,
+                  },
+                  {
+                    word: 'experienciar',
+                    start: 9.08,
+                    end: 9.58,
+                  },
+                  {
+                    word: 'o',
+                    start: 9.655,
+                    end: 9.815,
+                  },
+                  {
+                    word: 'ayahuasca',
+                    start: 9.815,
+                    end: 10.215,
+                  },
+                  {
+                    word: 'em',
+                    start: 10.215,
+                    end: 10.615,
+                  },
+                ],
+              },
+              {
+                text: 'dois mil e cinco e',
+                start: 10.615,
+                end: 11.255,
+                words: [
+                  {
+                    word: 'dois',
+                    start: 10.615,
+                    end: 10.695,
+                  },
+                  {
+                    word: 'mil',
+                    start: 10.695,
+                    end: 10.775,
+                  },
+                  {
+                    word: 'e',
+                    start: 10.775,
+                    end: 10.855,
+                  },
+                  {
+                    word: 'cinco',
+                    start: 10.855,
+                    end: 11.095,
+                  },
+                  {
+                    word: 'e',
+                    start: 11.095,
+                    end: 11.255,
+                  },
+                ],
+              },
+              {
+                text: 'de lá pra cá eu',
+                start: 11.255,
+                end: 12.755,
+                words: [
+                  {
+                    word: 'de',
+                    start: 11.255,
+                    end: 11.335,
+                  },
+                  {
+                    word: 'lá',
+                    start: 11.335,
+                    end: 11.495,
+                  },
+                  {
+                    word: 'pra',
+                    start: 11.495,
+                    end: 11.915,
+                  },
+                  {
+                    word: 'cá',
+                    start: 11.915,
+                    end: 12.335,
+                  },
+                  {
+                    word: 'eu',
+                    start: 12.335,
+                    end: 12.755,
+                  },
+                ],
+              },
+              {
+                text: 'diversas vezes eu eu continuei',
+                start: 12.755,
+                end: 14.635,
+                words: [
+                  {
+                    word: 'diversas',
+                    start: 12.755,
+                    end: 13.175,
+                  },
+                  {
+                    word: 'vezes',
+                    start: 13.175,
+                    end: 13.255,
+                  },
+                  {
+                    word: 'eu',
+                    start: 13.255,
+                    end: 13.755,
+                  },
+                  {
+                    word: 'eu',
+                    start: 13.975,
+                    end: 14.135,
+                  },
+                  {
+                    word: 'continuei',
+                    start: 14.135,
+                    end: 14.635,
+                  },
+                ],
+              },
+              {
+                text: 'sou quando tenho deixa muitas',
+                start: 15.815,
+                end: 18.573,
+                words: [
+                  {
+                    word: 'sou',
+                    start: 15.815,
+                    end: 16.135,
+                  },
+                  {
+                    word: 'quando',
+                    start: 16.215,
+                    end: 16.455,
+                  },
+                  {
+                    word: 'tenho',
+                    start: 16.455,
+                    end: 16.955,
+                  },
+                  {
+                    word: 'deixa',
+                    start: 18.34,
+                    end: 18.456,
+                  },
+                  {
+                    word: 'muitas',
+                    start: 18.456,
+                    end: 18.573,
+                  },
+                ],
+              },
+              {
+                text: 'lições o ayahuasca é algo',
+                start: 18.573,
+                end: 19.155,
+                words: [
+                  {
+                    word: 'lições',
+                    start: 18.573,
+                    end: 18.689,
+                  },
+                  {
+                    word: 'o',
+                    start: 18.689,
+                    end: 18.805,
+                  },
+                  {
+                    word: 'ayahuasca',
+                    start: 18.805,
+                    end: 18.922,
+                  },
+                  {
+                    word: 'é',
+                    start: 18.922,
+                    end: 19.038,
+                  },
+                  {
+                    word: 'algo',
+                    start: 19.038,
+                    end: 19.155,
+                  },
+                ],
+              },
+              {
+                text: 'que é difícil falar o',
+                start: 19.155,
+                end: 19.77,
+                words: [
+                  {
+                    word: 'que',
+                    start: 19.155,
+                    end: 19.271,
+                  },
+                  {
+                    word: 'é',
+                    start: 19.271,
+                    end: 19.387,
+                  },
+                  {
+                    word: 'difícil',
+                    start: 19.387,
+                    end: 19.504,
+                  },
+                  {
+                    word: 'falar',
+                    start: 19.504,
+                    end: 19.62,
+                  },
+                  {
+                    word: 'o',
+                    start: 19.62,
+                    end: 19.77,
+                  },
+                ],
+              },
+              {
+                text: '0 que é',
+                start: 19.77,
+                end: 20.77,
+                words: [
+                  {
+                    word: '0',
+                    start: 19.77,
+                    end: 20.02,
+                  },
+                  {
+                    word: 'que',
+                    start: 20.02,
+                    end: 20.27,
+                  },
+                  {
+                    word: 'é',
+                    start: 20.27,
+                    end: 20.77,
+                  },
+                ],
+              },
+              {
+                text: 'né mas eu tive a',
+                start: 26.415,
+                end: 27.935,
+                words: [
+                  {
+                    word: 'né',
+                    start: 26.415,
+                    end: 26.915,
+                  },
+                  {
+                    word: 'mas',
+                    start: 27.215,
+                    end: 27.615,
+                  },
+                  {
+                    word: 'eu',
+                    start: 27.615,
+                    end: 27.695,
+                  },
+                  {
+                    word: 'tive',
+                    start: 27.695,
+                    end: 27.815,
+                  },
+                  {
+                    word: 'a',
+                    start: 27.815,
+                    end: 27.935,
+                  },
+                ],
+              },
+              {
+                text: 'oportunidade de beber da fonte',
+                start: 27.935,
+                end: 29.555,
+                words: [
+                  {
+                    word: 'oportunidade',
+                    start: 27.935,
+                    end: 28.335,
+                  },
+                  {
+                    word: 'de',
+                    start: 28.335,
+                    end: 28.415,
+                  },
+                  {
+                    word: 'beber',
+                    start: 28.415,
+                    end: 28.815,
+                  },
+                  {
+                    word: 'da',
+                    start: 28.815,
+                    end: 29.055,
+                  },
+                  {
+                    word: 'fonte',
+                    start: 29.055,
+                    end: 29.555,
+                  },
+                ],
+              },
+              {
+                text: 'e aí onde é a',
+                start: 29.695,
+                end: 30.975,
+                words: [
+                  {
+                    word: 'e',
+                    start: 29.695,
+                    end: 29.855,
+                  },
+                  {
+                    word: 'aí',
+                    start: 29.855,
+                    end: 30.335,
+                  },
+                  {
+                    word: 'onde',
+                    start: 30.335,
+                    end: 30.575,
+                  },
+                  {
+                    word: 'é',
+                    start: 30.575,
+                    end: 30.815,
+                  },
+                  {
+                    word: 'a',
+                    start: 30.815,
+                    end: 30.975,
+                  },
+                ],
+              },
+              {
+                text: 'fonte cara hoje assim a',
+                start: 30.975,
+                end: 32.895,
+                words: [
+                  {
+                    word: 'fonte',
+                    start: 30.975,
+                    end: 31.475,
+                  },
+                  {
+                    word: 'cara',
+                    start: 31.775,
+                    end: 32.095,
+                  },
+                  {
+                    word: 'hoje',
+                    start: 32.095,
+                    end: 32.415,
+                  },
+                  {
+                    word: 'assim',
+                    start: 32.415,
+                    end: 32.735,
+                  },
+                  {
+                    word: 'a',
+                    start: 32.735,
+                    end: 32.895,
+                  },
+                ],
+              },
+              {
+                text: 'fonte realmente é no acre',
+                start: 32.895,
+                end: 34.18,
+                words: [
+                  {
+                    word: 'fonte',
+                    start: 32.895,
+                    end: 33.215,
+                  },
+                  {
+                    word: 'realmente',
+                    start: 33.215,
+                    end: 33.535,
+                  },
+                  {
+                    word: 'é',
+                    start: 33.535,
+                    end: 33.615,
+                  },
+                  {
+                    word: 'no',
+                    start: 33.615,
+                    end: 33.775,
+                  },
+                  {
+                    word: 'acre',
+                    start: 33.775,
+                    end: 34.18,
+                  },
+                ],
+              },
+              {
+                text: 'é no acre é no',
+                start: 34.18,
+                end: 36.1,
+                words: [
+                  {
+                    word: 'é',
+                    start: 34.18,
+                    end: 34.34,
+                  },
+                  {
+                    word: 'no',
+                    start: 34.34,
+                    end: 34.5,
+                  },
+                  {
+                    word: 'acre',
+                    start: 34.5,
+                    end: 35,
+                  },
+                  {
+                    word: 'é',
+                    start: 35.62,
+                    end: 35.78,
+                  },
+                  {
+                    word: 'no',
+                    start: 35.78,
+                    end: 36.1,
+                  },
+                ],
+              },
+              {
+                text: 'acre que ele é cultuado',
+                start: 36.1,
+                end: 38.2,
+                words: [
+                  {
+                    word: 'acre',
+                    start: 36.1,
+                    end: 36.42,
+                  },
+                  {
+                    word: 'que',
+                    start: 36.42,
+                    end: 36.92,
+                  },
+                  {
+                    word: 'ele',
+                    start: 37.3,
+                    end: 37.62,
+                  },
+                  {
+                    word: 'é',
+                    start: 37.62,
+                    end: 37.7,
+                  },
+                  {
+                    word: 'cultuado',
+                    start: 37.7,
+                    end: 38.2,
+                  },
+                ],
+              },
+              {
+                text: 'assim o ayahuasca era uma',
+                start: 38.34,
+                end: 41.435,
+                words: [
+                  {
+                    word: 'assim',
+                    start: 38.34,
+                    end: 38.84,
+                  },
+                  {
+                    word: 'o',
+                    start: 40.26,
+                    end: 40.5,
+                  },
+                  {
+                    word: 'ayahuasca',
+                    start: 40.5,
+                    end: 41,
+                  },
+                  {
+                    word: 'era',
+                    start: 41.06,
+                    end: 41.195,
+                  },
+                  {
+                    word: 'uma',
+                    start: 41.275,
+                    end: 41.435,
+                  },
+                ],
+              },
+              {
+                text: 'conexão entre o ser humano',
+                start: 41.435,
+                end: 43.29,
+                words: [
+                  {
+                    word: 'conexão',
+                    start: 41.435,
+                    end: 41.806,
+                  },
+                  {
+                    word: 'entre',
+                    start: 41.806,
+                    end: 42.177,
+                  },
+                  {
+                    word: 'o',
+                    start: 42.177,
+                    end: 42.548,
+                  },
+                  {
+                    word: 'ser',
+                    start: 42.548,
+                    end: 42.919,
+                  },
+                  {
+                    word: 'humano',
+                    start: 42.919,
+                    end: 43.29,
+                  },
+                ],
+              },
+              {
+                text: 'e deus né através da',
+                start: 43.29,
+                end: 45.144,
+                words: [
+                  {
+                    word: 'e',
+                    start: 43.29,
+                    end: 43.66,
+                  },
+                  {
+                    word: 'deus',
+                    start: 43.66,
+                    end: 44.031,
+                  },
+                  {
+                    word: 'né',
+                    start: 44.031,
+                    end: 44.402,
+                  },
+                  {
+                    word: 'através',
+                    start: 44.402,
+                    end: 44.773,
+                  },
+                  {
+                    word: 'da',
+                    start: 44.773,
+                    end: 45.144,
+                  },
+                ],
+              },
+              {
+                text: 'chacrona da folha né é',
+                start: 45.144,
+                end: 47.115,
+                words: [
+                  {
+                    word: 'chacrona',
+                    start: 45.144,
+                    end: 45.515,
+                  },
+                  {
+                    word: 'da',
+                    start: 45.515,
+                    end: 45.755,
+                  },
+                  {
+                    word: 'folha',
+                    start: 45.755,
+                    end: 46.255,
+                  },
+                  {
+                    word: 'né',
+                    start: 46.715,
+                    end: 46.955,
+                  },
+                  {
+                    word: 'é',
+                    start: 46.955,
+                    end: 47.115,
+                  },
+                ],
+              },
+              {
+                text: 'uma folha com esse pó',
+                start: 47.115,
+                end: 48.555,
+                words: [
+                  {
+                    word: 'uma',
+                    start: 47.115,
+                    end: 47.275,
+                  },
+                  {
+                    word: 'folha',
+                    start: 47.275,
+                    end: 47.595,
+                  },
+                  {
+                    word: 'com',
+                    start: 47.595,
+                    end: 47.835,
+                  },
+                  {
+                    word: 'esse',
+                    start: 47.835,
+                    end: 48.235,
+                  },
+                  {
+                    word: 'pó',
+                    start: 48.235,
+                    end: 48.555,
+                  },
+                ],
+              },
+              {
+                text: 'macerado fervido e que você',
+                start: 48.555,
+                end: 50.43,
+                words: [
+                  {
+                    word: 'macerado',
+                    start: 48.555,
+                    end: 49.055,
+                  },
+                  {
+                    word: 'fervido',
+                    start: 49.195,
+                    end: 49.695,
+                  },
+                  {
+                    word: 'e',
+                    start: 49.835,
+                    end: 49.995,
+                  },
+                  {
+                    word: 'que',
+                    start: 49.995,
+                    end: 50.155,
+                  },
+                  {
+                    word: 'você',
+                    start: 50.155,
+                    end: 50.43,
+                  },
+                ],
+              },
+              {
+                text: 'toma esse preparado é isso',
+                start: 50.43,
+                end: 53.54,
+                words: [
+                  {
+                    word: 'toma',
+                    start: 50.43,
+                    end: 50.91,
+                  },
+                  {
+                    word: 'esse',
+                    start: 50.91,
+                    end: 51.41,
+                  },
+                  {
+                    word: 'preparado',
+                    start: 51.63,
+                    end: 52.13,
+                  },
+                  {
+                    word: 'é',
+                    start: 52.9,
+                    end: 53.14,
+                  },
+                  {
+                    word: 'isso',
+                    start: 53.14,
+                    end: 53.54,
+                  },
+                ],
+              },
+              {
+                text: 'é você aprendendo e essas',
+                start: 53.54,
+                end: 55.62,
+                words: [
+                  {
+                    word: 'é',
+                    start: 53.54,
+                    end: 53.78,
+                  },
+                  {
+                    word: 'você',
+                    start: 53.78,
+                    end: 54.28,
+                  },
+                  {
+                    word: 'aprendendo',
+                    start: 54.58,
+                    end: 55.06,
+                  },
+                  {
+                    word: 'e',
+                    start: 55.06,
+                    end: 55.22,
+                  },
+                  {
+                    word: 'essas',
+                    start: 55.22,
+                    end: 55.62,
+                  },
+                ],
+              },
+              {
+                text: 'lições naquele momento que você',
+                start: 55.62,
+                end: 57.22,
+                words: [
+                  {
+                    word: 'lições',
+                    start: 55.62,
+                    end: 56.02,
+                  },
+                  {
+                    word: 'naquele',
+                    start: 56.02,
+                    end: 56.26,
+                  },
+                  {
+                    word: 'momento',
+                    start: 56.26,
+                    end: 56.66,
+                  },
+                  {
+                    word: 'que',
+                    start: 56.66,
+                    end: 56.9,
+                  },
+                  {
+                    word: 'você',
+                    start: 56.9,
+                    end: 57.22,
+                  },
+                ],
+              },
+              {
+                text: 'está sob o efeito do',
+                start: 57.22,
+                end: 58.58,
+                words: [
+                  {
+                    word: 'está',
+                    start: 57.22,
+                    end: 57.54,
+                  },
+                  {
+                    word: 'sob',
+                    start: 57.54,
+                    end: 57.86,
+                  },
+                  {
+                    word: 'o',
+                    start: 57.86,
+                    end: 58.02,
+                  },
+                  {
+                    word: 'efeito',
+                    start: 58.02,
+                    end: 58.42,
+                  },
+                  {
+                    word: 'do',
+                    start: 58.42,
+                    end: 58.58,
+                  },
+                ],
+              },
+              {
+                text: 'ayahuasca você leva por muito',
+                start: 58.58,
+                end: 60.58,
+                words: [
+                  {
+                    word: 'ayahuasca',
+                    start: 58.58,
+                    end: 59.08,
+                  },
+                  {
+                    word: 'você',
+                    start: 59.62,
+                    end: 59.94,
+                  },
+                  {
+                    word: 'leva',
+                    start: 59.94,
+                    end: 60.18,
+                  },
+                  {
+                    word: 'por',
+                    start: 60.18,
+                    end: 60.34,
+                  },
+                  {
+                    word: 'muito',
+                    start: 60.34,
+                    end: 60.58,
+                  },
+                ],
+              },
+              {
+                text: 'tempo cara muito tempo é',
+                start: 60.58,
+                end: 62.375,
+                words: [
+                  {
+                    word: 'tempo',
+                    start: 60.58,
+                    end: 60.82,
+                  },
+                  {
+                    word: 'cara',
+                    start: 60.82,
+                    end: 61.32,
+                  },
+                  {
+                    word: 'muito',
+                    start: 61.575,
+                    end: 61.815,
+                  },
+                  {
+                    word: 'tempo',
+                    start: 61.815,
+                    end: 62.095,
+                  },
+                  {
+                    word: 'é',
+                    start: 62.095,
+                    end: 62.375,
+                  },
+                ],
+              },
+              {
+                text: 'são as coisas acontecem você',
+                start: 62.375,
+                end: 65.175,
+                words: [
+                  {
+                    word: 'são',
+                    start: 62.375,
+                    end: 62.875,
+                  },
+                  {
+                    word: 'as',
+                    start: 63.495,
+                    end: 63.735,
+                  },
+                  {
+                    word: 'coisas',
+                    start: 63.735,
+                    end: 64.055,
+                  },
+                  {
+                    word: 'acontecem',
+                    start: 64.055,
+                    end: 64.555,
+                  },
+                  {
+                    word: 'você',
+                    start: 64.855,
+                    end: 65.175,
+                  },
+                ],
+              },
+              {
+                text: 'vê acontecerem com nitidez e',
+                start: 65.175,
+                end: 68.315,
+                words: [
+                  {
+                    word: 'vê',
+                    start: 65.175,
+                    end: 65.335,
+                  },
+                  {
+                    word: 'acontecerem',
+                    start: 65.335,
+                    end: 65.835,
+                  },
+                  {
+                    word: 'com',
+                    start: 66.295,
+                    end: 66.455,
+                  },
+                  {
+                    word: 'nitidez',
+                    start: 66.455,
+                    end: 66.955,
+                  },
+                  {
+                    word: 'e',
+                    start: 67.815,
+                    end: 68.315,
+                  },
+                ],
+              },
+              {
+                text: 'e você não sabe se',
+                start: 69.39,
+                end: 70.59,
+                words: [
+                  {
+                    word: 'e',
+                    start: 69.39,
+                    end: 69.55,
+                  },
+                  {
+                    word: 'você',
+                    start: 69.55,
+                    end: 69.71,
+                  },
+                  {
+                    word: 'não',
+                    start: 69.71,
+                    end: 70.03,
+                  },
+                  {
+                    word: 'sabe',
+                    start: 70.03,
+                    end: 70.35,
+                  },
+                  {
+                    word: 'se',
+                    start: 70.35,
+                    end: 70.59,
+                  },
+                ],
+              },
+              {
+                text: 'elas estão lá ou não',
+                start: 70.59,
+                end: 71.55,
+                words: [
+                  {
+                    word: 'elas',
+                    start: 70.59,
+                    end: 70.83,
+                  },
+                  {
+                    word: 'estão',
+                    start: 70.83,
+                    end: 70.99,
+                  },
+                  {
+                    word: 'lá',
+                    start: 70.99,
+                    end: 71.23,
+                  },
+                  {
+                    word: 'ou',
+                    start: 71.23,
+                    end: 71.39,
+                  },
+                  {
+                    word: 'não',
+                    start: 71.39,
+                    end: 71.55,
+                  },
+                ],
+              },
+              {
+                text: 'estão lá mas naquele momento',
+                start: 71.55,
+                end: 72.75,
+                words: [
+                  {
+                    word: 'estão',
+                    start: 71.55,
+                    end: 71.71,
+                  },
+                  {
+                    word: 'lá',
+                    start: 71.71,
+                    end: 71.95,
+                  },
+                  {
+                    word: 'mas',
+                    start: 71.95,
+                    end: 72.11,
+                  },
+                  {
+                    word: 'naquele',
+                    start: 72.11,
+                    end: 72.43,
+                  },
+                  {
+                    word: 'momento',
+                    start: 72.43,
+                    end: 72.75,
+                  },
+                ],
+              },
+              {
+                text: 'elas estão lá e e',
+                start: 72.75,
+                end: 74.59,
+                words: [
+                  {
+                    word: 'elas',
+                    start: 72.75,
+                    end: 72.99,
+                  },
+                  {
+                    word: 'estão',
+                    start: 72.99,
+                    end: 73.23,
+                  },
+                  {
+                    word: 'lá',
+                    start: 73.23,
+                    end: 73.73,
+                  },
+                  {
+                    word: 'e',
+                    start: 74.19,
+                    end: 74.43,
+                  },
+                  {
+                    word: 'e',
+                    start: 74.43,
+                    end: 74.59,
+                  },
+                ],
+              },
+              {
+                text: 'é isso e é isso',
+                start: 74.59,
+                end: 75.87,
+                words: [
+                  {
+                    word: 'é',
+                    start: 74.59,
+                    end: 74.75,
+                  },
+                  {
+                    word: 'isso',
+                    start: 74.75,
+                    end: 75.25,
+                  },
+                  {
+                    word: 'e',
+                    start: 75.47,
+                    end: 75.55,
+                  },
+                  {
+                    word: 'é',
+                    start: 75.55,
+                    end: 75.71,
+                  },
+                  {
+                    word: 'isso',
+                    start: 75.71,
+                    end: 75.87,
+                  },
+                ],
+              },
+              {
+                text: 'você tem coisas que estão',
+                start: 75.87,
+                end: 77.31,
+                words: [
+                  {
+                    word: 'você',
+                    start: 75.87,
+                    end: 76.11,
+                  },
+                  {
+                    word: 'tem',
+                    start: 76.11,
+                    end: 76.43,
+                  },
+                  {
+                    word: 'coisas',
+                    start: 76.43,
+                    end: 76.75,
+                  },
+                  {
+                    word: 'que',
+                    start: 76.75,
+                    end: 76.91,
+                  },
+                  {
+                    word: 'estão',
+                    start: 76.91,
+                    end: 77.31,
+                  },
+                ],
+              },
+              {
+                text: 'dentro de você e você',
+                start: 77.31,
+                end: 78.35,
+                words: [
+                  {
+                    word: 'dentro',
+                    start: 77.31,
+                    end: 77.55,
+                  },
+                  {
+                    word: 'de',
+                    start: 77.55,
+                    end: 77.71,
+                  },
+                  {
+                    word: 'você',
+                    start: 77.71,
+                    end: 77.95,
+                  },
+                  {
+                    word: 'e',
+                    start: 77.95,
+                    end: 78.11,
+                  },
+                  {
+                    word: 'você',
+                    start: 78.11,
+                    end: 78.35,
+                  },
+                ],
+              },
+              {
+                text: 'nunca prestou atenção e elas',
+                start: 78.35,
+                end: 79.585,
+                words: [
+                  {
+                    word: 'nunca',
+                    start: 78.35,
+                    end: 78.59,
+                  },
+                  {
+                    word: 'prestou',
+                    start: 78.59,
+                    end: 79.09,
+                  },
+                  {
+                    word: 'atenção',
+                    start: 79.105,
+                    end: 79.265,
+                  },
+                  {
+                    word: 'e',
+                    start: 79.265,
+                    end: 79.425,
+                  },
+                  {
+                    word: 'elas',
+                    start: 79.425,
+                    end: 79.585,
+                  },
+                ],
+              },
+              {
+                text: 'tomam forma na tua frente',
+                start: 79.585,
+                end: 81.185,
+                words: [
+                  {
+                    word: 'tomam',
+                    start: 79.585,
+                    end: 80.065,
+                  },
+                  {
+                    word: 'forma',
+                    start: 80.065,
+                    end: 80.305,
+                  },
+                  {
+                    word: 'na',
+                    start: 80.305,
+                    end: 80.545,
+                  },
+                  {
+                    word: 'tua',
+                    start: 80.545,
+                    end: 80.785,
+                  },
+                  {
+                    word: 'frente',
+                    start: 80.785,
+                    end: 81.185,
+                  },
+                ],
+              },
+              {
+                text: 'tu diria que é algo',
+                start: 81.185,
+                end: 82.065,
+                words: [
+                  {
+                    word: 'tu',
+                    start: 81.185,
+                    end: 81.425,
+                  },
+                  {
+                    word: 'diria',
+                    start: 81.425,
+                    end: 81.665,
+                  },
+                  {
+                    word: 'que',
+                    start: 81.665,
+                    end: 81.745,
+                  },
+                  {
+                    word: 'é',
+                    start: 81.745,
+                    end: 81.905,
+                  },
+                  {
+                    word: 'algo',
+                    start: 81.905,
+                    end: 82.065,
+                  },
+                ],
+              },
+              {
+                text: 'assim é vem coisas é',
+                start: 82.065,
+                end: 83.745,
+                words: [
+                  {
+                    word: 'assim',
+                    start: 82.065,
+                    end: 82.545,
+                  },
+                  {
+                    word: 'é',
+                    start: 82.545,
+                    end: 82.705,
+                  },
+                  {
+                    word: 'vem',
+                    start: 82.705,
+                    end: 82.945,
+                  },
+                  {
+                    word: 'coisas',
+                    start: 82.945,
+                    end: 83.345,
+                  },
+                  {
+                    word: 'é',
+                    start: 83.345,
+                    end: 83.745,
+                  },
+                ],
+              },
+              {
+                text: 'traz coisas novas porque como',
+                start: 83.745,
+                end: 85.425,
+                words: [
+                  {
+                    word: 'traz',
+                    start: 83.745,
+                    end: 83.985,
+                  },
+                  {
+                    word: 'coisas',
+                    start: 83.985,
+                    end: 84.385,
+                  },
+                  {
+                    word: 'novas',
+                    start: 84.385,
+                    end: 84.865,
+                  },
+                  {
+                    word: 'porque',
+                    start: 84.865,
+                    end: 85.265,
+                  },
+                  {
+                    word: 'como',
+                    start: 85.265,
+                    end: 85.425,
+                  },
+                ],
+              },
+              {
+                text: 'você alterou o teu estado',
+                start: 85.425,
+                end: 86.9,
+                words: [
+                  {
+                    word: 'você',
+                    start: 85.425,
+                    end: 85.785,
+                  },
+                  {
+                    word: 'alterou',
+                    start: 85.785,
+                    end: 86.145,
+                  },
+                  {
+                    word: 'o',
+                    start: 86.145,
+                    end: 86.305,
+                  },
+                  {
+                    word: 'teu',
+                    start: 86.305,
+                    end: 86.545,
+                  },
+                  {
+                    word: 'estado',
+                    start: 86.545,
+                    end: 86.9,
+                  },
+                ],
+              },
+              {
+                text: 'psíquico né você saiu do',
+                start: 86.9,
+                end: 88.58,
+                words: [
+                  {
+                    word: 'psíquico',
+                    start: 86.9,
+                    end: 87.4,
+                  },
+                  {
+                    word: 'né',
+                    start: 87.46,
+                    end: 87.78,
+                  },
+                  {
+                    word: 'você',
+                    start: 87.78,
+                    end: 88.1,
+                  },
+                  {
+                    word: 'saiu',
+                    start: 88.1,
+                    end: 88.42,
+                  },
+                  {
+                    word: 'do',
+                    start: 88.42,
+                    end: 88.58,
+                  },
+                ],
+              },
+              {
+                text: 'lugar comum você recebe outras',
+                start: 88.58,
+                end: 91.22,
+                words: [
+                  {
+                    word: 'lugar',
+                    start: 88.58,
+                    end: 88.82,
+                  },
+                  {
+                    word: 'comum',
+                    start: 88.82,
+                    end: 89.32,
+                  },
+                  {
+                    word: 'você',
+                    start: 89.78,
+                    end: 90.28,
+                  },
+                  {
+                    word: 'recebe',
+                    start: 90.58,
+                    end: 90.82,
+                  },
+                  {
+                    word: 'outras',
+                    start: 90.82,
+                    end: 91.22,
+                  },
+                ],
+              },
+              {
+                text: 'tem outras entradas diferentes e',
+                start: 91.22,
+                end: 93.78,
+                words: [
+                  {
+                    word: 'tem',
+                    start: 91.22,
+                    end: 91.54,
+                  },
+                  {
+                    word: 'outras',
+                    start: 91.54,
+                    end: 91.94,
+                  },
+                  {
+                    word: 'entradas',
+                    start: 91.94,
+                    end: 92.44,
+                  },
+                  {
+                    word: 'diferentes',
+                    start: 92.5,
+                    end: 93,
+                  },
+                  {
+                    word: 'e',
+                    start: 93.54,
+                    end: 93.78,
+                  },
+                ],
+              },
+              {
+                text: 'você avalia elas nessa outra',
+                start: 93.78,
+                end: 96.415,
+                words: [
+                  {
+                    word: 'você',
+                    start: 93.78,
+                    end: 94.28,
+                  },
+                  {
+                    word: 'avalia',
+                    start: 94.34,
+                    end: 94.815,
+                  },
+                  {
+                    word: 'elas',
+                    start: 95.055,
+                    end: 95.555,
+                  },
+                  {
+                    word: 'nessa',
+                    start: 95.695,
+                    end: 96.015,
+                  },
+                  {
+                    word: 'outra',
+                    start: 96.015,
+                    end: 96.415,
+                  },
+                ],
+              },
+              {
+                text: 'ótica entendeu mais ou menos',
+                start: 96.415,
+                end: 98.015,
+                words: [
+                  {
+                    word: 'ótica',
+                    start: 96.415,
+                    end: 96.815,
+                  },
+                  {
+                    word: 'entendeu',
+                    start: 96.815,
+                    end: 97.315,
+                  },
+                  {
+                    word: 'mais',
+                    start: 97.455,
+                    end: 97.615,
+                  },
+                  {
+                    word: 'ou',
+                    start: 97.615,
+                    end: 97.775,
+                  },
+                  {
+                    word: 'menos',
+                    start: 97.775,
+                    end: 98.015,
+                  },
+                ],
+              },
+              {
+                text: 'isso é algo que assim',
+                start: 98.015,
+                end: 100.435,
+                words: [
+                  {
+                    word: 'isso',
+                    start: 98.015,
+                    end: 98.515,
+                  },
+                  {
+                    word: 'é',
+                    start: 99.375,
+                    end: 99.535,
+                  },
+                  {
+                    word: 'algo',
+                    start: 99.535,
+                    end: 99.775,
+                  },
+                  {
+                    word: 'que',
+                    start: 99.775,
+                    end: 99.935,
+                  },
+                  {
+                    word: 'assim',
+                    start: 99.935,
+                    end: 100.435,
+                  },
+                ],
+              },
+              {
+                text: 'o cara não',
+                start: 100.895,
+                end: 101.695,
+                words: [
+                  {
+                    word: 'o',
+                    start: 100.895,
+                    end: 101.135,
+                  },
+                  {
+                    word: 'cara',
+                    start: 101.135,
+                    end: 101.455,
+                  },
+                  {
+                    word: 'não',
+                    start: 101.455,
+                    end: 101.695,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      })
+
+      cropSubtitleEditor.on('ready', ({ crops }) => {
+        console.log('The player was successfully mounted and finished loading')
+      })
+
+      cropSubtitleEditor.on('change', ({ crops }) => {
+        console.log('User has changed the crops to:', crops)
+        savedCrops = crops
+      })
+    </script>
+  </body>
+</html>
