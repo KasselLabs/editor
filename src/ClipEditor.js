@@ -7,6 +7,7 @@ class AutoeditorClipEditor {
       __editorURL = 'https://autoeditor.kassellabs.io',
       video,
       clips,
+      theme,
     } = options;
     const container = getContainer(containerSelectorOrElement);
     const iframe = document.createElement('iframe');
@@ -19,6 +20,7 @@ class AutoeditorClipEditor {
     const urlParams = new URLSearchParams({
       video,
       clips: JSON.stringify(clips),
+      colorPrimary: theme?.palette?.secondary?.main,
     });
     iframe.setAttribute('src', `${__editorURL}/clipper/embed?${urlParams.toString()}`);
 

@@ -35,7 +35,13 @@
       ]
 
       const clipEditor = new Autoeditor.ClipEditor("#clipper", {
-        // __editorURL: 'http://localhost:3000',
+        theme: {
+          palette: {
+            secondary: {
+              main: '#f00',
+            },
+          },
+        },
         video: 'https://autoeditorfiles.kassellabs.io/autoeditor/cc0bd38b235.mp4',
         clips: savedClips,
       })

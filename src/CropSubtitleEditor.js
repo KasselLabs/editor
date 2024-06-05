@@ -12,6 +12,7 @@ class AutoeditorCropSubtitleEditor {
       crop,
       subtitle,
       aspectRatio,
+      theme,
     } = options;
     const container = getContainer(containerSelectorOrElement);
     const iframe = document.createElement('iframe');
@@ -32,6 +33,7 @@ class AutoeditorCropSubtitleEditor {
     this.input = input;
     this.data = data;
     this.crop = crop;
+    this.theme = theme;
     this.subtitle = {
       transcription: {
         segments: subtitle.transcription?.segments?.map((segment, index) => ({
@@ -54,6 +56,14 @@ class AutoeditorCropSubtitleEditor {
     window.addEventListener('message', this.onMessage);
   }
 
+  setTheme(theme) {
+    this.theme = theme;
+    this.iframe.contentWindow.postMessage({
+      action: 'set-theme',
+      payload: this.theme,
+    }, '*');
+  }
+
   onMessage = (event) => {
     const { data } = event;
     if (event.origin !== this.editorURL.origin) {
@@ -63,6 +73,10 @@ class AutoeditorCropSubtitleEditor {
     // eslint-disable-next-line default-case
     switch (data.action) {
       case 'mounted':
+        if (this.theme) {
+          this.setTheme(this.theme);
+        }
+
         // Preset Crops
         this.iframe.contentWindow.postMessage({
           action: 'initialize',

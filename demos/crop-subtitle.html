@@ -38,124 +38,16 @@
             url: 'https://autoeditor.us-mia-1.linodeobjects.com/videos/_N7YGRnKlMBOyOnv2HB7g.mp4', // Required -> Base video to be edited
           },
         },
-        data: {
-          compressedEditableVideo: "https://autoeditorfiles.kassellabs.io/autoeditor/eec5e0fdeb8.mp4",
-          frameRate: 30, // Can be either 30 or 60 (Defaults to 30)
-          overlays: {
-            watermark: {
-              type: 'image',
-              url: 'https://autoeditor.us-mia-1.linodeobjects.com/files/SCzDBffxAcmN486quUlq9sHMJcRRIKEw_iZvq_d9M_HypyCk.png',
+        theme: {
+          palette: {
+            secondary: {
+              main: '#f00',
             },
-            front: [
-              {
-                type: 'image',
-                start: 4.5,
-                end: 16,
-                url: 'https://autoeditor.us-mia-1.linodeobjects.com/files/EdSK3DAE4Xl9hkUH6uJ2em9bRbhH2sujzn_RItEngqtPwa6T.png',
-              },
-            ],
-            back: [
-              {
-                type: 'image',
-                start: 10,
-                end: 25,
-                url: 'https://autoeditor.us-mia-1.linodeobjects.com/files/8w_XdKioNQNoqG_P0c6gh7BqArGV2TYugkMb8uO-VWAcfZDT.png',
-              },
-            ],
+            white: {
+              main: '#000',
+              contrastText: '#fff',
+            },
           },
-        },
-        crop: {
-          aspectRatio: 9 / 16, // Aspect ratio in which the video will be cropped (Defaults to 9 / 16)
-          scenes: [
-            {
-              end: 3.35,
-              start: 0,
-              exported: true,
-              cropCenter: {
-                x: 986.5821075439453,
-                y: 540,
-                faceCenters: [
-                  {
-                    x: 986.5821075439453,
-                    y: 540,
-                    width: 328.6436462402344,
-                    height: 385.56941986083973,
-                  },
-                ],
-              },
-            },
-            {
-              end: 52.134,
-              start: 3.35,
-              exported: true,
-              cropCenter: {
-                zoom: 0.317,
-                rotation: 0,
-                restrictPosition: false,
-                x: 960,
-                y: 540,
-                faceCenters: [
-                  {
-                    x: 688.7061309814453,
-                    y: 540,
-                    width: 404.1566848754883,
-                    height: 474.59916114807123,
-                  },
-                ],
-              },
-            },
-            {
-              end: 76.334,
-              start: 52.134,
-              exported: true,
-              cropCenter: {
-                x: 875.2653408050537,
-                y: 540,
-                faceCenters: [
-                  {
-                    x: 875.2653408050537,
-                    y: 540,
-                    width: 377.5535774230957,
-                    height: 463.2939147949219,
-                  },
-                ],
-              },
-            },
-            {
-              end: 82.667,
-              start: 76.334,
-              exported: true,
-              cropCenter: {
-                x: 888.1230068206787,
-                y: 540,
-                faceCenters: [
-                  {
-                    x: 888.1230068206787,
-                    y: 540,
-                    width: 330.472354888916,
-                    height: 378.0462169647217,
-                  },
-                ],
-              },
-            },
-            {
-              end: 101.818,
-              start: 82.667,
-              exported: true,
-              cropCenter: {
-                x: 931.424560546875,
-                y: 540,
-                faceCenters: [
-                  {
-                    x: 931.424560546875,
-                    y: 540,
-                    width: 341.4722442626953,
-                    height: 464.4005870819092,
-                  },
-                ],
-              },
-            },
-          ],
         },
         subtitle: {
           transcription: {

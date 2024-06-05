@@ -26,6 +26,14 @@ import { ClipEditor } from '@kassellabs/autoeditor'
 
 const clipEditor = new ClipEditor('#video-clip-editor', {
   video: 'https://autoeditorfiles.kassellabs.io/autoeditor/cc0bd38b235.mp4',
+  theme: {
+    palette: {
+      // Customize the video handles' colors
+      secondary: {
+        main: '#f00',
+      },
+    },
+  },
   clips: [
     {start: 10, end: 20, selected: true},
     {start: 40, end: 60, selected: false},
@@ -67,6 +75,19 @@ You can create a video crop subtitle editor using the following code:
 import { CropSubtitleEditor } from '@kassellabs/autoeditor'
 
 const cropSubtitleEditor = new CropSubtitleEditor('#video-crop-subtitle-editor', {
+  theme: {
+    palette: {
+      // Customize the video handles' colors
+      secondary: {
+        main: '#f00',
+      },
+      // Customize white buttons colors
+      white: {
+        main: '#000',
+        contrastText: '#fff',
+      },
+    },
+  },
   input: {
     media: {
       url: 'https://autoeditor.us-mia-1.linodeobjects.com/videos/_N7YGRnKlMBOyOnv2HB7g.mp4', // Required -> URL of the base video to be edited
