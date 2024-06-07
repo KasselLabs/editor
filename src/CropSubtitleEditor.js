@@ -13,6 +13,8 @@ class AutoeditorCropSubtitleEditor {
       subtitle,
       aspectRatio,
       theme,
+      apiKey,
+      userId,
     } = options;
     const container = getContainer(containerSelectorOrElement);
     const iframe = document.createElement('iframe');
@@ -26,6 +28,8 @@ class AutoeditorCropSubtitleEditor {
 
     container.appendChild(iframe);
 
+    this.apiKey = apiKey;
+    this.userId = userId;
     this.editorURL = new URL(__editorURL);
     this.initialized = false;
     this.iframe = iframe;
@@ -85,6 +89,8 @@ class AutoeditorCropSubtitleEditor {
             data: this.data,
             crop: this.crop,
             subtitle: this.subtitle,
+            apiKey: this.apiKey,
+            userId: this.userId,
           },
         }, '*');
         break;

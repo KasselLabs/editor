@@ -75,6 +75,8 @@ You can create a video crop subtitle editor using the following code:
 import { CropSubtitleEditor } from '@kassellabs/autoeditor'
 
 const cropSubtitleEditor = new CropSubtitleEditor('#video-crop-subtitle-editor', {
+  apiKey: '<your public API Key>', // Optional, having this will enable users to upload fonts and edit his own presets
+  userId: '<your user id / other unique identifier>', // Optional, having this will allow you to control fonts and user edited presets per user
   theme: {
     palette: {
       // Customize the video handles' colors
