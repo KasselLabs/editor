@@ -3,4 +3,4 @@ const convertTimeStringToSeconds = (time) => {
   return (ms + ss * 1000 + mm * 60 * 1000 + hh * 60 * 60 * 1000) / 1000;
 };
 
-export default convertTimeStringToSeconds;
+module.exports = convertTimeStringToSeconds;

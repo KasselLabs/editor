@@ -1,4 +1,4 @@
-import convertTimeStringToSeconds from './convertTimeStringToSeconds';
+const convertTimeStringToSeconds = require('./convertTimeStringToSeconds');
 
 const WORD_END_CHARACTERS = new Set(['?', '.', '!']);
 
@@ -79,4 +79,4 @@ const reorganizeWords = (segments, {
   }));
 };
 
-export default reorganizeWords;
+module.exports = reorganizeWords;
