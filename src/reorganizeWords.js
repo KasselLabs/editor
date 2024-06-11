@@ -1,5 +1,3 @@
-const convertTimeStringToSeconds = require('./convertTimeStringToSeconds');
-
 const WORD_END_CHARACTERS = new Set(['?', '.', '!']);
 
 const reorganizeWords = (segments, {
@@ -12,8 +10,8 @@ const reorganizeWords = (segments, {
   const reorganizedSegments = [];
 
   let currentSegment = {
-    startTime: null,
-    endTime: null,
+    start: null,
+    end: null,
     words: [],
   };
 
@@ -21,13 +19,13 @@ const reorganizeWords = (segments, {
 
   let currentCharCount = 0;
   words.forEach((word, index) => {
-    const wordEnd = convertTimeStringToSeconds(word.endTime);
+    const wordEnd = word.end;
     const wordString = word.word.trim();
     const wordCharCount = wordString.length;
 
-    if (currentSegment.startTime === null) {
-      currentSegment.startTime = word.startTime;
-      currentSegment.endTime = word.endTime;
+    if (currentSegment.start === null) {
+      currentSegment.start = word.start;
+      currentSegment.end = word.end;
       currentSegment.words.push({
         ...word,
         word: removePunctuation ? word.word.trim().replace(/[.?!,]/g, '') : word.word,
@@ -35,7 +33,7 @@ const reorganizeWords = (segments, {
       currentCharCount += wordCharCount;
       return; // continue
     }
-    const segmentStart = convertTimeStringToSeconds(currentSegment.startTime);
+    const segmentStart = currentSegment.start;
 
     const lastWordString = words[index - 1]?.word?.trim() || '';
     const isWordEnding = WORD_END_CHARACTERS.has(lastWordString.slice(-1));
@@ -52,14 +50,14 @@ const reorganizeWords = (segments, {
     ) {
       reorganizedSegments.push(currentSegment);
       currentSegment = {
-        startTime: word.startTime,
-        endTime: null,
+        start: word.start,
+        end: null,
         words: [],
       };
       currentCharCount = 0;
     }
 
-    currentSegment.endTime = word.endTime;
+    currentSegment.end = word.end;
     currentSegment.words.push({
       ...word,
       word: removePunctuation ? word.word.trim().replace(/[.?!,]/g, '') : word.word,
