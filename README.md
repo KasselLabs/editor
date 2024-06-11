@@ -282,6 +282,56 @@ cropSubtitleEditor.on('change', ({ input, data, crop, subtitle }) => {
 })
 ```
 
+## Utility Functions
+
+### reorganizeWords(segments, options)
+
+You can pass some parameters to a list of segments to be reorganized according to some parameters
+
+```javascript
+reorganizeWords([
+  {
+    text: 'tudo sabe eu vou contar',
+    start: 0.545,
+    end: 2.44,
+    words: [
+      {
+        word: 'tudo',
+        start: 0.545,
+        end: 1.045,
+      },
+      {
+        word: 'sabe',
+        start: 1.185,
+        end: 1.56,
+      },
+      {
+        word: 'eu',
+        start: 1.8,
+        end: 1.96,
+      },
+      {
+        word: 'vou',
+        start: 1.96,
+        end: 2.04,
+      },
+      {
+        word: 'contar',
+        start: 2.04,
+        end: 2.44,
+      },
+    ],
+  },
+  ...,
+], {
+  maxWordsPerLine: 5, // Maximum number of words per line
+  maxSecondsPerLine: 10, // Maximum number of seconds per line
+  maxCharactersPerLine: 40, // Maximum number of characters per line
+  cutPhrases: false, // Allow phrases to be cut in the middle
+  removePunctuation: false, // Remove punctuation when re-organizing
+})
+```
+
 ## Developing
 
 To develop and test this library, you can run:
