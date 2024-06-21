@@ -10,6 +10,7 @@ class AutoeditorCropSubtitleEditor {
       input,
       data,
       crop,
+      detectScenes,
       subtitle,
       aspectRatio,
       theme,
@@ -37,6 +38,7 @@ class AutoeditorCropSubtitleEditor {
     this.input = input;
     this.data = data;
     this.crop = crop;
+    this.detectScenes = detectScenes;
     this.theme = theme;
     this.subtitle = {
       transcription: {
@@ -88,6 +90,7 @@ class AutoeditorCropSubtitleEditor {
             input: this.input,
             data: this.data,
             crop: this.crop,
+            detectScenes: this.detectScenes,
             subtitle: this.subtitle,
             apiKey: this.apiKey,
             userId: this.userId,

@@ -120,6 +120,7 @@ const cropSubtitleEditor = new CropSubtitleEditor('#video-crop-subtitle-editor',
       ],
     },
   },
+  detectScenes: true, // Enable scene detection (will lead to a loading at the beginning of the video)
   crop: {
     aspectRatio: 9 / 16, // Aspect ratio in which the video will be cropped (Defaults to 9 / 16)
     scenes: [ // Each scene should be placed as an element here
