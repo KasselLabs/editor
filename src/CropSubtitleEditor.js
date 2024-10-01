@@ -45,12 +45,12 @@ class AutoeditorCropSubtitleEditor {
         segments: subtitle.transcription?.segments?.map((segment, index) => ({
           id: index + 1,
           text: segment.text,
-          startTime: convertSecondsToTimeString(segment.start),
-          endTime: convertSecondsToTimeString(segment.end),
+          startTime: segment.startTime || convertSecondsToTimeString(segment.start),
+          endTime: segment.endTime || convertSecondsToTimeString(segment.end),
           words: segment.words.map((word) => ({
             word: word.word,
-            startTime: convertSecondsToTimeString(word.start),
-            endTime: convertSecondsToTimeString(word.end),
+            startTime: word.startTime || convertSecondsToTimeString(word.start),
+            endTime: word.endTime || convertSecondsToTimeString(word.end),
           })),
         })) || [],
       },
