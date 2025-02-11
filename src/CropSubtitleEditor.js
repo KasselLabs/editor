@@ -5,7 +5,7 @@ const convertSecondsToTimeString = require('./utils/convertSecondsToTimeString')
 class AutoeditorCropSubtitleEditor {
   constructor(containerSelectorOrElement, options = {}) {
     const {
-      __editorURL = 'https://editor.kassellabs.io',
+      __editorURL = 'https://autoeditor.video',
       video,
       input,
       data,
@@ -16,6 +16,7 @@ class AutoeditorCropSubtitleEditor {
       theme,
       apiKey,
       userId,
+      defaultMode,
     } = options;
     const container = getContainer(containerSelectorOrElement);
     const iframe = document.createElement('iframe');
@@ -31,6 +32,7 @@ class AutoeditorCropSubtitleEditor {
 
     this.apiKey = apiKey;
     this.userId = userId;
+    this.defaultMode = defaultMode;
     this.editorURL = new URL(__editorURL);
     this.initialized = false;
     this.iframe = iframe;
@@ -94,6 +96,7 @@ class AutoeditorCropSubtitleEditor {
             subtitle: this.subtitle,
             apiKey: this.apiKey,
             userId: this.userId,
+            defaultMode: this.defaultMode,
           },
         }, '*');
         break;
