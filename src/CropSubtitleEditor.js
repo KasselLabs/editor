@@ -43,7 +43,9 @@ class AutoeditorCropSubtitleEditor {
     this.detectScenes = detectScenes;
     this.theme = theme;
     this.subtitle = {
+      ...subtitle,
       transcription: {
+        ...subtitle?.transcription,
         segments: subtitle.transcription?.segments?.map((segment, index) => ({
           id: index + 1,
           text: segment.text,
