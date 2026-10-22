@@ -335,6 +335,10 @@ reorganizeWords([
 
 ## Developing
 
+Use Node.js 22.23.4 or a newer patch within Node 22 (`nvm use`) and npm.
+CI and release builds select the exact patched runtime. Rebuild artifacts after
+runtime updates.
+
 To develop and test this library, you can run:
 
 ```bash
